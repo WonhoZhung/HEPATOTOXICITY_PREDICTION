@@ -16,8 +16,8 @@
 ```
     python main.py --model_saved model/best_model.pt
                    --smiles_filename sample/minocycline.smi
-                   --result_filename minocycline.out
-                   --visualize
+                   --result_filename sample/minocycline.out
+                   --image_filename draw/minocycline.png
 ```
 
 <img src="https://github.com/WonhoZhung/HEPATOTOXICITY_PREDICTION/blob/main/draw/minocycline.png" height="400">
