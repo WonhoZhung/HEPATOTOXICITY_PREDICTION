@@ -26,7 +26,8 @@ parser.add_argument("--smiles_filename", help="smiles_filename", type=str, \
         default=None)
 parser.add_argument("--result_filename", help="result_filename", type=str, \
         default=None)
-parser.add_argument("--visualize", help="visualize", action="store_true")
+parser.add_argument("--image_filename", help="image_filename", type=str, \
+        default=None)
 args = parser.parse_args()
 
 
@@ -81,7 +82,7 @@ save_pred = [(k, save_smi[k], v) for k, v in save_pred.items()]
 # Write Result
 utils.write_result(args.result_filename, save_pred)
 
-if args.visualize:
+if args.image_filename is not None and len(save_pred) == 1:
     for idx, smi, score in save_pred: 
         print(save_grad[idx])
-        utils.view_grad(f"draw/{idx}", smi, save_grad[idx])
+        utils.view_grad(f"draw/{args.image_filename}", smi, save_grad[idx])
