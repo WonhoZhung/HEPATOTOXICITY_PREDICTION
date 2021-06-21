@@ -9,7 +9,7 @@
 ```
     python main.py --model_saved model/best_model.pt
                    --smiles_filename sample/sample.smi
-                   --result_filename sample.out
+                   --result_filename sample/sample.out
 ```
 
 ### 2. Visualizing atom contribution
