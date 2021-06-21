@@ -84,5 +84,4 @@ utils.write_result(args.result_filename, save_pred)
 
 if args.image_filename is not None and len(save_pred) == 1:
     for idx, smi, score in save_pred: 
-        print(save_grad[idx])
         utils.view_grad(f"{args.image_filename.split('.')[0]}", smi, save_grad[idx])
