@@ -122,7 +122,7 @@ def view_grad(filename, smiles, grad):
     img = Draw.MolDraw2DCairo(400, 400)
     GetSimilarityMapFromWeights(mol, grad.tolist(), draw2d=img, contourLines=0)
     img.FinishDrawing()
-    img.WriteDrawingText(f"{filename}.png")
+    img.WriteDrawingText(filename)
     return mol
 
 def calc_precision(pred, true):
