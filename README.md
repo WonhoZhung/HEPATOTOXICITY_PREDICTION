@@ -16,9 +16,9 @@ or, you can use a single SMILES
                    --result_filename sample/minocycline.out
 ```
 
-### 2. Visualizing atom contribution
+### 2. Visualizing atom contribution (support for a single SMILES)
 ```
-    python main.py --smiles_filename sample/minocycline.smi
+    python main.py --smiles "CN(C)[C@H]1[C@@H]2C[C@@H]3CC4=C(C=CC(=C4C(=C3C(=O)[C@@]2(C(=C(C1=O)C(=O)N)O)O)O)O)N(C)C"
                    --result_filename sample/minocycline.out
                    --image_filename draw/minocycline.png
 ```
