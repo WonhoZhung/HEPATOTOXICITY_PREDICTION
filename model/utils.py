@@ -108,9 +108,9 @@ def get_dataset_dataloader(train_data, test_data,
 
 def write_result(filename, pred):
     with open(filename, 'w')  as w:
-        w.write(f"Index\tSmiles\tScore\n")
-        for idx, smi, score in pred:
-            w.write(f"{idx}\t{smi}\t{float(score):.3f}\n")
+        w.write(f"Index\tSmiles\tScore\tUncertainty\n")
+        for idx, smi, score, unc in pred:
+            w.write(f"{idx}\t{smi}\t{float(score):.3f}\t{float(unc):.3f}\n")
     return
 
 def view_grad(filename, smiles, grad):
@@ -123,7 +123,7 @@ def view_grad(filename, smiles, grad):
     GetSimilarityMapFromWeights(mol, grad.tolist(), draw2d=img, contourLines=0)
     img.FinishDrawing()
     img.WriteDrawingText(filename)
-    return mol
+    return 
 
 def calc_precision(pred, true):
     from sklearn.metrics import precision_score

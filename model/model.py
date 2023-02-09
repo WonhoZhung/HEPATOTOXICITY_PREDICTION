@@ -22,18 +22,21 @@ class GCNModel(nn.Module):
                         nn.Linear(self.n_hidden, 1),
                         nn.Sigmoid()
         )
+        self.dropout = nn.Dropout(args.dropout)
 
     def forward(self, sample):
-        x, adj = sample['x'], sample['adj']
+        x, adj = sample['node'], sample['adj']
 
         h = self.embedding(x)
 
         for i in range(self.n_layers):
             h_ori = h
+            h = self.dropout(h)
             h = torch.sigmoid(self.GCN[i](h, adj))
             h = torch.relu(h+h_ori) # Residual
 
         g = self.readout(h)
+        g = self.dropout(g)
         return self.fc_layer_GCN(g).squeeze(-1)
 
 
