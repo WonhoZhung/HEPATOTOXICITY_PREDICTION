@@ -102,4 +102,5 @@ if args.image_filename is not None and len(smiles_list) == 1:
 save_pred = [(k, save_smi[k], v[0], v[1]) for k, v in save_pred.items()]
 
 # Write Result
-utils.write_result(args.result_filename, save_pred)
+if args.result_filename is not None:
+    utils.write_result(args.result_filename, save_pred)
