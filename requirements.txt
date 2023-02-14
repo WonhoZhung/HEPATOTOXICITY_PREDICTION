@@ -1,9 +1,8 @@
-python==3.7.10
-numpy==1.19.2
+python==3.7.13
+numpy==1.21.2
 scipy==1.6.2
-tqdm==4.48.2
-matplotlib==3.3.1
-torch==1.7.1
-sklearn==0.23.2
-rdkit==2020.03.3
-cairosvg==2.5.1
+tqdm==4.64.1
+matplotlib==3.5.3
+torch==1.9.0
+rdkit==2022.09.1
+cairosvg==2.6.0

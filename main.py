@@ -30,6 +30,8 @@ parser.add_argument("--result_filename", help="result_filename", type=str, \
         default=None)
 parser.add_argument("--image_filename", help="image_filename", type=str, \
         default=None)
+parser.add_argument("--grad_filename", help="grad_filename", type=str, \
+        default=None)
 parser.add_argument("--dropout", help="dropout", type=float, default=0.2)
 parser.add_argument("--num_sample", type=int, default=30)
 args = parser.parse_args()
@@ -96,8 +98,14 @@ for idx, smi in tqdm(enumerate(smiles_list), total=len(smiles_list)):
     save_smi[idx] = smi
 
 if args.image_filename is not None and len(smiles_list) == 1:
+    if ".png" not in args.image_filename:
+        args.image_filename = args.image_filename + ".png"
     utils.view_grad(args.image_filename, smi, grad_list)
 
+if args.grad_filename is not None and len(smiles_list) == 1:
+    if ".npy" in args.grad_filename:
+        args.grad_filename = args.grad_filename[:-4]
+    np.save(args.grad_filename, grad_list)
 
 save_pred = [(k, save_smi[k], v[0], v[1]) for k, v in save_pred.items()]
 
