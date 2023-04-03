@@ -21,7 +21,7 @@ parser.add_argument("--ngpu", help="number of gpu", type=int, default=0)
 parser.add_argument("--n_hidden", help="n_hidden", type=int, default=128)
 parser.add_argument("--n_layers", help="n_layer", type=int, default=4)
 parser.add_argument("--model_saved", help="model_saved", type=str, \
-        default="./model/best_model.pt")
+        default="./model/best_model_230401.pt")
 parser.add_argument("--smiles_filename", help="smiles_filename", type=str, \
         default=None)
 parser.add_argument("--smiles", help="smiles", type=str, \
@@ -34,6 +34,7 @@ parser.add_argument("--grad_filename", help="grad_filename", type=str, \
         default=None)
 parser.add_argument("--dropout", help="dropout", type=float, default=0.2)
 parser.add_argument("--num_sample", type=int, default=30)
+parser.add_argument("--verbose", help="verbose", action="store_true")
 args = parser.parse_args()
 
 
@@ -96,6 +97,9 @@ for idx, smi in tqdm(enumerate(smiles_list), total=len(smiles_list)):
     save_pred[idx] = pred_mean, pred_std
     save_grad[idx] = grad
     save_smi[idx] = smi
+
+    if args.verbose:
+        print(f"{smi}: {pred_mean:.2f} ± {pred_std:.2f}")
 
 if args.image_filename is not None and len(smiles_list) == 1:
     if ".png" not in args.image_filename:
