@@ -21,7 +21,7 @@ parser.add_argument("--ngpu", help="number of gpu", type=int, default=0)
 parser.add_argument("--n_hidden", help="n_hidden", type=int, default=128)
 parser.add_argument("--n_layers", help="n_layer", type=int, default=4)
 parser.add_argument("--model_saved", help="model_saved", type=str, \
-        default="./model/best_model_230401.pt")
+        default="./model/best_model_230410.pt")
 parser.add_argument("--smiles_filename", help="smiles_filename", type=str, \
         default=None)
 parser.add_argument("--smiles", help="smiles", type=str, \

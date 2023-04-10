@@ -24,3 +24,14 @@ or, you can use a single SMILES
 ```
 
 <img src="https://github.com/WonhoZhung/HEPATOTOXICITY_PREDICTION/blob/main/draw/minocycline.png" height="400">
+
+
+### 3. Test set benchmark score
+
++--------------------+----------+-------+----------+
+| Test set benchmark | Accuracy | AUROC | F1 Score |
++--------------------+----------+-------+----------+
+| Previous model     | 0.591    | 0.646 | 0.636    |
++--------------------+----------+-------+----------+
+| Current model      | 0.717    | 0.745 | 0.798    |
++--------------------+----------+-------+----------+
